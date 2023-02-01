@@ -16,3 +16,36 @@ img {
   display: block;
   max-width: 100%;
 }
+.timer {
+  display: flex;
+  margin-top: 10px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+  text-align: center;
+}
+.value {
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  text-shadow: -2px 2px 2px #887b67, 0 -3px 1px #fff;
+}
+.label {
+  font-size: 20px;
+}
+input#datetime-picker {
+  width: 200px;
+  height: 32px;
+  box-shadow: 0 6px 8px #958d81, 0 -2px 1px #fff;
+  font-weight: 600;
+  text-align: center;
+}
+button {
+  display: inline-block;
+  width: 80px;
+  height: 32px;
+  box-shadow: 0 6px 8px #958d81, 0 -2px 1px #fff;
+  cursor: pointer;
+}
