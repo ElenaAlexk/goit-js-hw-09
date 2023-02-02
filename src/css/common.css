@@ -42,7 +42,7 @@ input#datetime-picker {
   font-weight: 600;
   text-align: center;
 }
-button {
+.btn-timer {
   display: inline-block;
   width: 80px;
   height: 32px;
