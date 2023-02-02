@@ -29,7 +29,7 @@ function onPromiseCreate(e) {
   let step = Number(refs.step.value);
 
   for (let i = 1; i <= amount; i += 1) {
-    let newDelay = delayFirst + step * i;
+    let newDelay = delayFirst + step;
 
     createPromise(i, newDelay)
       .then(({ position, delay }) => {
