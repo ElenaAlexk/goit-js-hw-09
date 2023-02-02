@@ -11,7 +11,7 @@ const refs = {
 };
 
 startBtn.disabled = true;
-startBtn.addEventListener('click', onStartTimerButton);
+startBtn.addEventListener('click', timerStart);
 let timerId = null;
 let selectedDate = null;
 let currentDate = null;
@@ -38,20 +38,20 @@ function onCheckDate(selectedDates) {
   }
 }
 
-const timer = {
-  start() {
-    setInterval(() => {
-      currentDate = new Date().getTime();
-      const deltaTime = selectedDate - currentDate;
+function timerStart() {
+  timerId = setInterval(() => {
+    currentDate = new Date().getTime();
+    const deltaTime = selectedDate - currentDate;
+    startBtn.disabled = true;
+    if (deltaTime <= 0) {
+      clearInterval(timerId);
+      inputDateTime.disabled = false;
+    } else {
+      inputDateTime.disabled = true;
       const time = convertMs(deltaTime);
       updateClockface(time);
-    }, 1000);
-  },
-};
-
-function onStartTimerButton() {
-  timer.start();
-  startBtn.disabled = true;
+    }
+  }, 1000);
 }
 
 function updateClockface({ days, hours, minutes, seconds }) {
