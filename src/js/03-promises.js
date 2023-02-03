@@ -1,12 +1,14 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
+  body: document.querySelector('body'),
   delay: document.querySelector('[name="delay"]'),
   step: document.querySelector('[name="step"]'),
   amount: document.querySelector('[name="amount"]'),
   form: document.querySelector('.form'),
 };
 
+refs.body.style.backgroundColor = '#f44336';
 refs.form.addEventListener('click', onPromiseCreate);
 
 function createPromise(position, delay) {
@@ -21,6 +23,7 @@ function createPromise(position, delay) {
     }, delay);
   });
 }
+
 function onPromiseCreate(e) {
   e.preventDefault();
 
@@ -29,7 +32,7 @@ function onPromiseCreate(e) {
   let step = Number(refs.step.value);
 
   for (let i = 1; i <= amount; i += 1) {
-    let newDelay = delayFirst + step;
+    let newDelay = delayFirst + step * i;
 
     createPromise(i, newDelay)
       .then(({ position, delay }) => {
